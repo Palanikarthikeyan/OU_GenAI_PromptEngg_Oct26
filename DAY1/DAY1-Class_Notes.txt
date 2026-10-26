@@ -1,0 +1,222 @@
+
+
+	Good Morning All
+
+	Welcome to GenAI and Prompt Engineering Training
+		   =============================
+
+	This is Palani Karthikeyan (Call me: Karthik) - Trainer
+                =====================================
+	We will start session @ 9:30 AM IST
+				===========
+
+=========================================================================================
+AI - machine/system to perform task
+    
++---------------------------------------+
+|   ML  - Learns patterns from data
+|   |
+|   DL - Neural network with multiple layers - learn complex patterns
+|
+    Input Layer        Hidden Layers    Output Layers
+				..
+	CNN
+        ANN 
+        RNN and LSTM 
+        |
+      Transformer  
+
++---------------------------------------+
+
+
+ personA                 personB   
+ - list of birds         - list of birds
+ - 100s books            - 500s books
+
+Q:
+
+Gen AI
+---------
+ LLM - text based - text generate 
+ LMM (Multimodel) - text,audio,image,video  
+
+Tokenization
+Explain Machine Learning to a beginner
+======= ======= ======== == == ========
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Recap NLP
+       |->Corpus ->documents ->words  ->stop words --> word
+	  ------   ---------   ------
+
+learning ->learn
+---------  =====
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+OneHot encoding techniquie
+---------------------------
+food good bad //
+
+food =>  1 0 0
+good =>  0 1 0
+bad  =>  0 0 1
+        --------//
+
+LLM works
+------------
+User prompt(UserQuery)
+
+1. Tokenization - text is converted to word(token)
+2. Numerical representation: numerical array - vectors
+3. Transformer processing: Attention 
+4. Next-token prediction: the model calculates probabilities for possible next tokens
+----//numbers
+5. Text generation: A decoding selected token -> response(text/image/audio/video)
+
+
+Attention is All You Need - 2017
+Transformer - relationship between elements/tokens in a sequence 
+
+The student put the book on the table because it was heavy //
+
+
+Muli-head attention:
+
+Ravi gave his book to Amit because he had finished reading it.
+
+##############################################################################################################
+Text 
+ ->Tokens ->Vectors ->Attention ->NNLayers ->Output Probabilities -> Generate Text
+				|______________________________|	
+	
+============================================================================================================
+
+Ollama 
+-------//after install it
+
+open a command prompt
+|
+ollama list {Enter}
+
+ollama run <model-Name>{Enter}
+       ===
+	|->download and run
+
+ollama pull <model-Name> {Enter}
+      -----
+	|->download only 
+
+...
+================================================================================================
+ 
+LangChain 
+- developement framework
+- supports with all the llm providers
+  -------------------------------------
+   External APIs
+   DataSources  
+   PromptTemplate
+   VectorDB ---------connect with Oracle23ai , FAISS,Chroma
+   Tools - connect external source 
+   AI Agents
+   ..
+
+pip install langchain langchain-openai
+
+from langchain_<modelProviderName> import <ClassName>
+
+from langchain_openai import ChatOpenAI   
+llm_obj = ChatOpenAI(model="gpt-4.1-mini") 
+-------
+|->user defined 
+
+llm_obj.invoke('Explain about langchain in 3 lines') ->llm_response 
+
+
+
+from langchain_openai import ChatOpenAI   
+llm_obj = ChatOpenAI(model="gpt-4.1-mini") 
+response = llm_obj.invoke('Explain about langchain in 3 lines')
+
+------------
+
+pip install langchain langchain-groq
+
+from langchain_groq import CharGroq
+llm_obj = ChatGroq(model="llam3.x")
+response = llm_obj.invoke('Explain about langchain in 3 lines')
+----------
+
+pip install langchain langchain-cohere
+
+from langchain_cohere import ChatCohere
+
+llm_obj = ChatCohere(model="command-a-03-2025")
+response = llm_obj.invoke("Explain about Gen AI in 5 words")
+---------
+###################################################################################
+
+project-directory/
+		   llm_app.py
+		   .env <== file 
+		    |
+		   LLM_Provider_API_KEY="APIKEY"
+		   -----------------------------
+			|
+			we have to load this API key inside the developement file(llm_app.py)
+
+			import os
+			from dotenv import load_dotenv
+			load_dotenv() # ->True / False ->there is no .env file exists
+
+
+
+project-dir/
+	   .env
+	     |
+	   GROQ_API_KEY="abcde2343"
+	
+file: llm_app.py
+--------------------
+from langchain_groq import CharGroq
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+llm_obj = ChatGroq(model="llam3.x",api_key=os.environ['GROQ_API_KEY'])
+response = llm_obj.invoke('Explain about langchain in 3 lines')
+--------------------
+
+
+pip install langchain langchain-core langchain-cohere python-dotenv
+---------------------------------------------------------------------------
+import os
+
+from dotenv import load_dotenv
+
+from langchain_cohere import ChatCohere
+
+load_dotenv()
+
+llm_obj = ChatCohere(model = "command-a-03-2025",cohere_api_key=os.environ['COHERE_API_KEY'])
+response = llm_obj.invoke('User prompt')
+print(response)
+print(response.content)
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+			
+		
