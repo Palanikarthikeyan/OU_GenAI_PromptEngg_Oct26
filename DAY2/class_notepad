@@ -1,0 +1,41 @@
+flask 3.2 version
+ - app.py --------------->running 
+
+---------------
+flask 4.2 version
+ |
+ fx() ->ImportError 
+ -----
+ fy(..)
+
++--------------+          +==============+
+|  flask 3.2   |          |  flask 4.2   |
++--------------+          +==============+
+python -m venv <venName> <== create an env
+|
+<venName>\scripts\activate <== Winx  /  source <venName>/bin/activate <== activate 
+
+
+
+
+User ------>prompt-------->[LLM]
+			    |
+	-----<-------------
+
+PrompTemplate(input_variables=[],template='') --> ChatPromptTemplate.from_template()
+						  -- not using input_variables,template keywords
+
+
+
+llm=llmClass()
+|
+llm.invoke('String_type_query') ->response 
+-----------Vs
+
+prompt_object = PromptTemplate()..
+-------------
+
+mychain = prompt_object | llm 
+-------         |_________|
+|
+mychain.invoke({'placeHolder':'String_type_query'}) ->response
